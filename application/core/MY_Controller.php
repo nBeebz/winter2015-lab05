@@ -38,8 +38,10 @@ class Application extends CI_Controller {
 
 		// Get Caboose data
 		$this->data['caboose_styles'] = $this->caboose->styles();
-		$this->data['caboose_scripts]'] = $this->caboose->scripts();
+		$this->data['caboose_scripts'] = $this->caboose->scripts();
 		$this->data['caboose_trailings'] = $this->caboose->trailings();
+		
+
 		
         // finally, build the browser page!
         $this->data['data'] = &$this->data;

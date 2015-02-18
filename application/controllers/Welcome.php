@@ -22,6 +22,15 @@ class Welcome extends Application {
     {
 	$this->data['pagebody'] = 'justone';    // this is the view we want shown
 	$this->data = array_merge($this->data, (array) $this->quotes->last());
+	$this->caboose->needed('jrating','hollywood');
+	
+	// Get random quote
+	$choice = rand(1,$this->quotes->size());
+	$this->data = array_merge($this->data, (array) $this->quotes->get($choice));
+	
+	// Calculate vote average
+	$this->data['average'] = ($this->data['vote_count'] > 0) ? ($this->data['vote_total'] / $this->data['vote_count']) : 0;
+	
 	$this->render();
     }
 
